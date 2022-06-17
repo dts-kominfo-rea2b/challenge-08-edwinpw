@@ -9,65 +9,57 @@
       body{
         background-color: rgb(143, 47, 207);
         padding-top:  10px;
-        /* text-align: center;   */
       }
 
       #app{
         width: 300px;
         height: 300px;  
-        /* padding: 50px; */
         background-color: white;
-        /* padding-top: 20px; */
         border-radius: 15px;
-        margin: 0 auto;
-        
+        margin: 0 auto;   
       }
 
-      #todo-title{
-        /* background-color: aqua; */
-        position: relative;
-        display: table;
-        margin: 5px auto; /* keep the table centered */
-        padding:5px 5px 5px 5px;font-size:15px;background-color:rgb(25, 241, 158);color:#000000;
-        
+      .center {
+        text-align:center;
       }
 
-      #todo-title{
-        
+      .center h4 {
+        display: inline-block;
+        font-size: 15px;
+        background-color: #1df8a1;
       }
 
       p{
-        text-align: center; 
         font-size: 13px;
       }
 
-      button, input[type="text"] {
-             display: block;
-             margin : 0 auto;
-             display:inline
-        }
-
       button{
-       
         font-size: 7px;
-    
       }
+
+      ul {
+        padding-left: 20%;
+      }
+
     </style>
   </head>
   <body>
     <div id="app">
       <!-- TODO: Buatlah sebuah header dengan id todo-title -->
-      <h4 id = "todo-title">To-Do List</h4>
       <!-- TODO: Buatlah sebuah subtitle dengan id todo-subtitle -->
-      <p id = "todo-subtitle">~ Today I need to ~</p>
-
-
+      <div class="center">
+        <h4 id = "todo-title">To-Do List</h4>
+        <p id = "todo-subtitle">~ Today I need to ~</p>
+      </div>
 
       <!-- Section: input -->
       <!-- TODO: Buatlah sebuah input bertipe text dengan id todo-input -->
-      <input type="text" id = "todo-input">
       <!-- TODO: Buatlah sebuah button dengan id todo-submit -->
-      <button id="todo-submit">Submit</button>
+      <div class="center">
+        <input type="text" id = "todo-input">
+        <button id="todo-submit">Submit</button>
+      </div>
+
       <!-- Section output -->
       <!-- TODO: Buatlah sebuah <ul> dengan id todo-output -->
         <ul id="todo-output"></ul>
