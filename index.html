@@ -71,33 +71,45 @@
       let button = document.querySelector("#todo-submit");
       let input = document.querySelector("#todo-input");
       let output = document.querySelector("#todo-output");
+      let inputData = '';
 
       // TODO: Buatlah sebuah fungsi dengan nama fnClickHandler
       // Fungsi yang digunakan untuk menambahkan tulisan
       // Jangan ubah cara deklarasi fungsinya, cukup isi saja
       function fnClickHandler(toDoItem) {
-        let li = document.createElement("li");
-        li.textContent = toDoItem;
-        return li;
+        // let li = document.createElement("li");
+        // li.textContent = toDoItem;
+        // return li;
+        if (toDoItem?.type === 'click' || toDoItem?.key === "Enter" || toDoItem?.which === 13) {
+          let li = document.createElement("li")
+          // const textValue = document.createTextNode(inputValue)
+          li.appendChild(document.createTextNode(inputData));
+          document.querySelector('ul').appendChild(li);
+          input.value = "";
+          inputData = "";
+        }
       }
+
+      function fnTempData(values) {
+            inputData = values.target.value;
+        }
+
+      // function fnHandleInputChange(event) {
+      //   if (event?.target?.value?.length > 0) {
+      //     inputValue = event?.target?.value
+      //   }
+      // }
 
       // TODO: register event onclick / addEventListener untuk button
       // akan menjalankan fungsi fnClickHandler
-      button.addEventListener('click', () => {
-        output.appendChild(fnClickHandler(input.value));   
-        input.value = ""; 
-      });
-    // output.appendChild(fnClickHandler("haha"));
+      // button.addEventListener('click', () => {
+      //   output.appendChild(fnClickHandler(input.value));   
+      //   input.value = ""; 
+      // });
+      button.addEventListener('click', fnClickHandler);
+      input.addEventListener('keypress', fnClickHandler);
+      input.addEventListener('keyup', fnTempData);
       
-      // TODO: register event onkeypress / addEventListener untuk input
-      // sehingga saat di input ditekan enter akan menjalankan fungsi fnClickHandler juga
-      input.addEventListener('keydown', (event) => {
-        if (event.key === "Enter") {
-          output.appendChild(fnClickHandler(input.value));
-          input.value = "";
-        }   
-    });
-    input.value = "";
     </script>
   </body>
 </html>
